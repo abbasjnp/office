@@ -1,0 +1,77 @@
+<div class="content-top">
+  <div class="col-md-4 ">
+      <div class="row">
+          <ul class="breadcrumb">
+              <li>
+                  <a >Dashboard</a>
+              </li>
+              <li >Society Admin</li>
+              <li *ngIf="isNewSocietyAdmin" class="active">Add Society Admin</li>
+              <li *ngIf="!isNewSocietyAdmin" class="active">Edit Society Admin</li>
+          </ul>
+          <h4 *ngIf="isNewSocietyAdmin" class="breadcrumb-title">Add Society Admin</h4>
+          <h4 *ngIf="!isNewSocietyAdmin" class="breadcrumb-title">Edit Society Admin</h4>
+      </div>
+  </div>
+  <div class="col-md-8 " *ngIf="!isNewSocietyAdmin">
+    <div class="row">
+      <div class="cnt-top-left-main">
+        <div class="cnt-top-btn">
+            <button class="content-top-btn bg-yellow" (click)="changePassword()">
+                <i class="glyphicon glyphicon-pencil"></i> Change Password</button>
+        </div>
+      </div> 
+    </div>
+</div>
+
+</div>
+<div class="content-main">
+  <div class="cnt radius">
+      <div class="cnt-title-pink border-orange" *ngIf="isNewSocietyAdmin">Add Society Admin</div>
+      <div class="cnt-title-pink border-orange" *ngIf="!isNewSocietyAdmin">Edit Society Admin</div>
+      <div class="cnt-from">
+        <form name="societyAdminRegisterForm" #societyAdminRegisterForm="ngForm" >
+          <div class="input-row">
+              <div class="cnt-from-input">
+                  <mat-form-field class="input-full-width">
+                    <input type="text"  name="name" [(ngModel)]="societyAdminRegisterObj.name" matInput placeholder="Admin Name" value="" required />
+                  </mat-form-field>
+              </div>
+
+              <div class="cnt-from-input">
+                  <mat-form-field class="input-full-width">
+                    <input type="email" name="email" [(ngModel)]="societyAdminRegisterObj.email" matInput placeholder="Email" value="" required />
+                  </mat-form-field>
+              </div>
+          </div>            
+
+          <div class="input-row">
+            <div class="cnt-from-input" *ngIf="isNewSocietyAdmin">
+                <mat-form-field class="input-full-width">
+                  <input type="password" name="password" [(ngModel)]="societyAdminRegisterObj.password" matInput placeholder="Password" value="" minlength="6" required />
+                </mat-form-field>
+            </div>
+                
+            <div class="cnt-from-input">
+                <mat-form-field class="input-full-width">
+                    <input type="text" matInput [formControl]="ctrlSociety" placeholder="Society Name" [matAutocomplete]="auto" required>
+                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                        <mat-option *ngFor="let society of filteredSocieties | async" [value]="society.socity_name" (onSelectionChange)="updateSocityId(society)">
+                            {{society.socity_name}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+            </div>
+          </div>
+          <div class="input-row">
+              <div class="input-full-width">
+                  <button *ngIf="isNewSocietyAdmin"  [disabled]="!societyAdminRegisterForm.valid || societyAdminRegisterObj.socity_id === null" [ngClass]="{ 'btn-gray': !societyAdminRegisterForm.valid || societyAdminRegisterObj.socity_id === null, 'btn-orange': societyAdminRegisterForm.valid && societyAdminRegisterObj.socity_id !== null}" (click)="societyAdminRegister()" class="input-btn">Add Admin</button>
+                  <button *ngIf="!isNewSocietyAdmin"  [disabled]="!societyAdminRegisterForm.valid || societyAdminRegisterObj.socity_id === null" [ngClass]="{  'btn-gray': !societyAdminRegisterForm.valid || societyAdminRegisterObj.socity_id === null,  'btn-orange': societyAdminRegisterForm.valid && societyAdminRegisterObj.socity_id !== null }" (click)="societyAdminUpdate()" class="input-btn">Save</button>
+                  <button type="button"  class="input-btn btn-white marign-rt10px" (click)="cancel()" > Cancel </button>
+              </div>
+          </div>
+        </form>
+      </div>
+  </div>
+
+</div>

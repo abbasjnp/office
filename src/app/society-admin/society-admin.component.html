@@ -1,0 +1,15 @@
+<div class="wrapper">
+  <app-header [alerts]="alerts" [alertCount]="alertCount" (markAsRead)="markAsRead($event)"></app-header>
+  <app-sidebar [navs]="navs">
+    test
+  </app-sidebar>
+      
+      
+  <div id="content">
+      <router-outlet></router-outlet>
+
+    <div class="footer">
+        © 2018 Maids and Car Management
+    </div>
+  </div>
+</div>
