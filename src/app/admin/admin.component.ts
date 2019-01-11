@@ -78,7 +78,22 @@ export class AdminComponent implements OnInit, OnDestroy {
         enable: true,
         visible: true,
         subNavs: [
-                      
+          {
+            title: 'Sub 1',
+            url: '/admin/requests/shorlisted',
+            //icon: '../../../assets/img/society.svg',
+            enable: true,
+            visible: true,
+            subNavs: []
+          },
+          {
+            title: 'Sub 2',
+            url: '/admin/requests/replacement',
+            //icon: '../../../assets/img/society.svg',
+            enable: true,
+            visible: true,
+            subNavs: []
+          }
         ]
       }
 

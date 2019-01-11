@@ -5,10 +5,9 @@
 export const environment = {
   production: false,
   // baseUrl: 'http://13.233.163.36/'
-  baseUrl: 'https://maidsncar.sia.co.in/'
+  baseUrl: 'https://api.maidsncar.com/'
 
 };
-
 /*
  * In development mode, to ignore zone related error stack frames such as
  * `zone.run`, `zoneDelegate.invokeTask` for easier debugging, you can

@@ -12,6 +12,20 @@ export class SidebarComponent implements AfterViewInit {
   
   }
   ngAfterViewInit() {
+//     var dropdown = document.getElementsByClassName("dropdown-btn");
+//     var i;
+
+// for (i = 0; i < dropdown.length; i++) {
+//   dropdown[i].addEventListener("click", function() {
+//   this.classList.toggle("active");
+//   var dropdownContent = this.nextElementSibling;
+//   if (dropdownContent.style.display === "block") {
+//   dropdownContent.style.display = "none";
+//   } else {
+//   dropdownContent.style.display = "block";
+//   }
+//   });
+}
     // $('#menu ul').hide();
     // // $('#menu ul:first').show();
     // $('#menu li a').click(function () {
@@ -30,4 +44,5 @@ export class SidebarComponent implements AfterViewInit {
     //   $(".mySidenav .fa").toggleClass(""); // toggle 2 classes in Jquery: http://goo.gl/3uQAFJ - http://goo.gl/t6BQ9Q
     // });
   }
-}
+  
+

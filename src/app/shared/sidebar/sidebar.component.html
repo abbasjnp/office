@@ -3,24 +3,30 @@
   <ul class="list-unstyled components">
     <li *ngFor="let nav of navs">
       <!-- <div *ngIf="nav.visible"> -->
-        <!-- <a *ngIf="nav.subNavs.length>0 || nav.url ==='' || !nav.enable ">
+         <a *ngIf="nav.subNavs.length>0 || nav.url ==='' || !nav.enable" routerLink="{{nav.url}}">
         <img class="icon-img marign-lt5px" src="{{nav.icon}}" />
-          {{nav.title}}
-        </a> -->
+          {{nav.title}}<i style="margin-left:20px" class="fa fa-caret-down"></i>
+        </a>
+        <ul>
+         <li *ngFor="let subnav of nav.subNavs">
+             <a routerLink="{{subnav.url}}"> {{subnav.title}}</a>
+            
+         </li>
+        </ul>
         <a *ngIf="nav.subNavs.length==0 && nav.enable" routerLink="{{nav.url}}">
          <img class="icon-img marign-lt5px" src="{{nav.icon}}" />
             <!-- <i [class]="nav.icon"></i>-->
           {{nav.title}}
         </a>
-        <ul class="collapse list-unstyled">
+        <!-- <ul class="collapse list-unstyled">
           <li *ngFor="let subnav of nav.subNavs">
+              {{subnav.title}}
             <div *ngIf=true>
               <a *ngIf="subnav.url !=='' && subnav.enable" routerLink="{{subnav.url}}"> {{subnav.title}}</a>
               <a *ngIf="subnav.url ==='' || !subnav.enable"> {{subnav.title}}</a>
             </div>
           </li>
-
-        </ul>
+        </ul> -->
       <!-- </div> -->
     </li>
   </ul>

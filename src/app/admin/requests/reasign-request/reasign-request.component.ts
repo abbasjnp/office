@@ -8,14 +8,20 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
   styleUrls: ['./reasign-request.component.css']
 })
  export class ReasignRequestComponent implements OnInit {
+  reasignEmployeeView:boolean=false;
 
 constructor( public dialogRef: MatDialogRef<ReasignRequestComponent>,
-    @Inject(MAT_DIALOG_DATA) public data:any) { }
+    @Inject(MAT_DIALOG_DATA) public data:any) {
+      console.log(data.reasignEmployeeView);
+      console.log(data.element.id)
+     }
+    
 
  ngOnInit() {
    }
    onNoClick(): void {
     this.dialogRef.close();
+    this.reasignEmployeeView=false;
   }
 
   reasignEmployee(searchedTerm){

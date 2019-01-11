@@ -31,7 +31,6 @@ export class ManageRequestsComponent implements OnInit {
   subscription;
 
   public importErrorMessage = '';
-  reasignEmployeeView:boolean=false;
 
   colDefs = [
     {
@@ -127,22 +126,21 @@ export class ManageRequestsComponent implements OnInit {
   }
 
   openDialog(element): void {
-    this.reasignEmployeeView=true;
     const dialogRef = this.dialog.open(ReasignRequestComponent, {
       width: '420px',
       height:'275px',
-      data: {element,reasignEmployeeView:this.reasignEmployeeView}
+      data: element
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       this.employee = result;
-      this.reasignEmployeeView=false;
     });
     console.log(element.id);
     console.log(this.employee); 
     
   }
+  
 
 
 
