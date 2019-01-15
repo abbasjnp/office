@@ -1,24 +1,30 @@
 <nav id="sidebar" class="bg-dark">
-  <!-- <span class="brandName">Master Channel Partner</span> -->
-  <ul class="list-unstyled components">
-    <li *ngFor="let nav of navs">
-      <!-- <div *ngIf="nav.visible"> -->
-         <a *ngIf="nav.subNavs.length>0 || nav.url ==='' || !nav.enable" routerLink="{{nav.url}}">
-        <img class="icon-img marign-lt5px" src="{{nav.icon}}" />
-          {{nav.title}}<i style="margin-left:20px" class="fa fa-caret-down"></i>
-        </a>
-        <ul>
+    <!-- <span class="brandName">Master Channel Partner</span> -->
+    <ul class="list-unstyled components">
+        <li *ngFor="let nav of navs">
+            <!-- <div *ngIf="nav.visible"> -->
+            <a *ngIf="nav.subNavs.length>0 || nav.url ==='' || !nav.enable" class="dropdown-btn">
+                <img class="icon-img marign-lt5px" src="{{nav.icon}}" />
+                {{nav.title}}<i style="margin-left:100px" class="fa fa-caret-down"></i>
+            </a>
+            <div class="dropdown-container">
+                <ul >
+                    <li *ngFor="let subnav of nav.subNavs">
+                        <a routerLink="{{subnav.url}}"> {{subnav.title}}</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- <ul>
          <li *ngFor="let subnav of nav.subNavs">
-             <a routerLink="{{subnav.url}}"> {{subnav.title}}</a>
-            
-         </li>
-        </ul>
-        <a *ngIf="nav.subNavs.length==0 && nav.enable" routerLink="{{nav.url}}">
-         <img class="icon-img marign-lt5px" src="{{nav.icon}}" />
-            <!-- <i [class]="nav.icon"></i>-->
-          {{nav.title}}
-        </a>
-        <!-- <ul class="collapse list-unstyled">
+             <a routerLink="{{subnav.url}}"> {{subnav.title}}</a>   
+         </li>      
+        </ul> -->
+            <a *ngIf="nav.subNavs.length==0 && nav.enable" routerLink="{{nav.url}}">
+                <img class="icon-img marign-lt5px" src="{{nav.icon}}" />
+                <!-- <i [class]="nav.icon"></i>-->
+                {{nav.title}}
+            </a>
+            <!-- <ul class="collapse list-unstyled">
           <li *ngFor="let subnav of nav.subNavs">
               {{subnav.title}}
             <div *ngIf=true>
@@ -27,9 +33,9 @@
             </div>
           </li>
         </ul> -->
-      <!-- </div> -->
-    </li>
-  </ul>
+            <!-- </div> -->
+        </li>
+    </ul>
 </nav>
 
 <!-- <nav id="sidebar" class="bg-dark">
@@ -74,5 +80,3 @@
   </ul>
 
 </nav> -->
-
-

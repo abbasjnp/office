@@ -1,5 +1,16 @@
-.dropdown-container {
+.dropdown-container  {
     display: none;
-    background-color: #262626;
+    background  :#141d26;
     padding-left: 18px;
+    text-decoration: none;
+
   }
+  .dropdown-container ul {
+    list-style-type:none
+
+  }
+  .dropdown-container ul li a{
+    background: #141d26;
+    color:white;
+  }
+  

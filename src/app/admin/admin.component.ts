@@ -61,41 +61,42 @@ export class AdminComponent implements OnInit, OnDestroy {
         icon: '../../../assets/img/requests.png',
         enable: true,
         visible: true,
-        subNavs: []
-      },
-      {
-        title: 'Shortlisted',
-        url: '/admin/requests/shorlisted',
-       // icon: '../../../assets/img/society.svg',
-        enable: true,
-        visible: true,
-        subNavs: []
-      },
-      {
-        title: 'Replacement',
-        url: '/admin/requests/replacement',
-        //icon: '../../../assets/img/society.svg',
-        enable: true,
-        visible: true,
         subNavs: [
           {
-            title: 'Sub 1',
+          title: 'Requests for Backup',
+          url: '/admin/manage-request',
+         // icon: '../../../assets/img/society.svg',
+          enable: true,
+          visible: true,
+          subNavs: []
+        },
+          {
+            title: 'Shortlisted',
             url: '/admin/requests/shorlisted',
-            //icon: '../../../assets/img/society.svg',
+           // icon: '../../../assets/img/society.svg',
             enable: true,
             visible: true,
             subNavs: []
           },
           {
-            title: 'Sub 2',
+            title: 'Replacement',
             url: '/admin/requests/replacement',
             //icon: '../../../assets/img/society.svg',
             enable: true,
             visible: true,
             subNavs: []
-          }
+          },
         ]
+      },
+      {
+        title: 'Replacement(Society URL)',
+        url: '/admin/manage-society-admin',
+        icon: '../../../assets/img/society.svg',
+        enable: true,
+        visible: true,
+        subNavs: []
       }
+      
 
     ];
   }
